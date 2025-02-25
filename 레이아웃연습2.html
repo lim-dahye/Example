@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>레이아웃연습2</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    a{text-decoration: none; color: inherit;}
+    .container{
+      width: 1080px;     
+      display: flex;
+      margin: auto;
+      gap: 8px;
+    }
+    .main-box{
+      display: flex;
+      position: relative;
+    }
+    .box > img{
+      display: block;
+    }
+    .txt{
+      display: block;
+      position: absolute;
+      text-align: left;
+      padding: 44px;
+      visibility: hidden;
+    }
+    .icon{
+      padding: 20px 0;
+    }
+    .main-box> .txt > h2{
+      font-size: 24px;
+      color: #fff;
+    }
+    .main-box> .txt > p{
+      font-size: 14px;
+      color: #fff;
+    }
+    
+    .container:hover > .main-box > .txt{
+      opacity: 1;
+      visibility: visible;
+      background-color: rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main-box">
+      <img src="/images/img1.jpg" alt="">      
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <div class="icon">
+        <a href="#"><img src="/icon/facebook.png" alt="facebook"></a>
+        <a href="#"><img src="/icon/instagram.png" alt="instagram"></a>
+      </div>
+     </div>   
+    </div>
+    <div class="box">
+      <img class="image" src="/images/img2.jpg" alt="">
+    </div>
+    <div class="box">
+      <img class="image" src="/images/img3.jpg" alt="">  
+    </div>
+    <div class="box">
+      <img class="image" src="/images/img4.jpg" alt="">  
+    </div>
+  </div>
+</body>
+</html>

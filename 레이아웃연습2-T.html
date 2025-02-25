@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>레이아웃 연습</title>
+  <!-- CSS초기화 -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+
+  <style>
+    .container{
+      /*outline은 영역차지X (border는 영역에 영향을 줌)*/
+      outline: 1px solid red;
+      width: 1060px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    .box{
+      width: 250px;
+      position: relative;
+      overflow: hidden;/*box를 넘어가는 콘텐츠를 가려줌*/
+    }
+    .box > img{
+      display: block;
+    }
+    .box >.txt{
+      position: absolute;
+      /*한번에 설정 top: 0; left: 0; bottom: 0; right: 0; */
+      inset: 0;
+      color: #fff;
+      background-color: rgba(0,0,0,0.5);
+      padding: 40px 20px;
+      /*display: none; 효과를 줄수 없음  */
+      opacity: 0;
+      transform: scale(0) rotate(-720deg);
+      transition: .5s; /*all 0.5s 또는 500ms*/
+    }
+    .box:hover > .txt{
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+    /* 두번째 txt에 효과적용 */
+    .box:nth-child(2) > .txt{
+      transform: translateY(100%);
+    }
+    .box:nth-child(2):hover > .txt{
+      transform: translateY(0%);
+    }
+    .txt > h2{
+      font-size: 24px;
+    }
+    .txt > p{
+      font-size: 14px;
+      margin: 10px 0;
+    }
+    .txt > .icon > a{
+      margin-right: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box">
+      <img src="/images/img1.jpg" alt="">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda, minus.</p>
+        <div class="icon">
+          <a href="#"><img src="/icon/facebook.png" alt=""></a>
+          <a href="#"><img src="/icon/instagram.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <img src="/images/img2.jpg" alt="">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda, minus.</p>
+        <div class="icon">
+          <a href="#"><img src="/icon/facebook.png" alt=""></a>
+          <a href="#"><img src="/icon/instagram.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <img src="/images/img3.jpg" alt="">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda, minus.</p>
+        <div class="icon">
+          <a href="#"><img src="/icon/facebook.png" alt=""></a>
+          <a href="#"><img src="/icon/instagram.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <img src="/images/img4.jpg" alt="">
+      <div class="txt">
+        <h2>Segment Title</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda, minus.</p>
+        <div class="icon">
+          <a href="#"><img src="/icon/facebook.png" alt=""></a>
+          <a href="#"><img src="/icon/instagram.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

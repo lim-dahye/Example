@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flip Card</title>
+  <style>
+    .flip-card{
+      background-color: transparent;
+      width: 300px;
+      height: 300px;
+      border: 1px solid #f1f1f1;
+      perspective: 1000px;/*원근감을 1000px로 설정*/
+    }
+    /* 앞면, 뒷면을 배치를 위해 필요*/
+    .flip-card-inner{
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transform-style: preserve-3d;
+      /* 
+      transform-style속성은 요소의 자식요소가 입체적인 3D공간에 배치될지, 요소의 표면에 평평하게 묘사할지를 결정.
+      기본값은 flat로 자식요소가 2D의 2차원에서 부모요소와 동일한 평면에 배치되고 preserve-3D를 지정하면 3D공간에 배치됨. */
+      position: relative; 
+      transition: transform 0.8s;/*transform속성이 변경되면 0.8초에 걸쳐 서서히 변경됨*/
+    }
+    .flip-card-fornt,
+    .flip-card-back{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;/*뒷면이 보이면 투명하게 설정*/
+    }
+    .flip-card-back{
+      background-color:cornflowerblue;
+      color: #fff;
+      transform: rotateY(180deg);/*Y축으로 180도 회전*/
+    }
+    /*마우스를 올리면 수평 뒤집기 효과실행*/
+    .flip-card:hover .flip-card-inner{
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-fornt">
+        <!-- object-fit:cover = 이미지비율을 유지하며 영역에 채우기 -->
+        <img src="/images/user1.jpg" alt="Avatar" width= "300" height="300" style="object-fit: cover;">
+      </div>
+      <div class="flip-card-back">
+        <h1>John Doe</h1>
+        <p>Architect &amp; Engineer</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

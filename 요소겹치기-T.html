@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>요소겹치기</title>
+  <style>
+    .container{
+      width: 50%;
+      margin: auto;
+      outline: 1px solid red;
+      position: relative;/*자식요소의 position: absolute; 기준*/
+    }
+    .container > img{
+      display: block;
+      width: 100%;/*부모요소기준으로 적용*/
+      height: auto;
+    }
+    .overlay{
+      position: absolute;/*부모요소에 position: relative;를 적용*/
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-color: rgb(0,0,0,0.5);
+      color: #fff;
+      font-size: 40px;
+      /*컨텐츠 가운데 정렬용*/
+      display: flex;
+      justify-content: center;/*주축(가로)기준 가운데*/
+      align-items: center;/*중심축(세로)기준 가운데*/
+      /*====================*/
+      opacity: 0;/*화면에서 가려줌(투명0-불투명1)*/
+      visibility: hidden;/*공간유지상태로 화면에서 가려주면서 마우스로 선택안됨*/
+      /*변환효과*/
+      transition: opacity 0.3s;/*효과변경시간을 0.3초로*/
+      user-select: none;/*텍스트 드래그 비활성화*/
+    }
+    /*마우스를 container에 올리면 overlay요소가 나타남*/
+    .container:hover > .overlay{
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="images/user.jpg" alt="Avator">
+    <div class="overlay">
+      <div class="text">Hello</div>
+    </div>
+  </div>
+</body>
+</html>
