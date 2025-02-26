@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>슬라이드버튼</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    a{text-decoration: none; color: inherit;}
+
+    section{
+      width: 1000px;
+      margin: auto;
+      background-color: thistle;
+      height: 500px;
+      position: relative;
+      overflow: hidden;
+    }
+    .side-nav a{
+      position: absolute;
+      width: 100px;
+      padding: 16px;
+      font-size: 20px;
+      color: #fff;
+      /*왼쪽상단 모서리부터 시계방향*/
+      border-radius: 0 5px 5px 0;
+      left:-100px;
+      transition: left 0.5s;
+    }
+    .side-nav a:hover{
+      left: 0;
+    }
+    #about{
+      top: 20px;
+      background-color: #4caf50;
+    }
+    #blog{
+      top: 90px;
+      background-color: #2196f3;
+    }
+    #project{
+      top: 160px;
+      background-color: #f44336;
+    }
+    #contact{
+      top: 230px;
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div class="side-nav">
+      <a href="#about" id="about">About</a>
+      <a href="#blog" id="blog">Blog</a>
+      <a href="#project" id="project">Project</a>
+      <a href="#contact" id="contact">Contact</a>
+    </div>
+</section>  
+</body>
+</html>
